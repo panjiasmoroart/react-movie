@@ -10,7 +10,7 @@ export default function Spinner() {
   };
 
   return (
-    <div className="container flex justify-center">
+    <div className="flex justify-center my-5">
       <div className="animate-spin" style={loader}></div>
     </div>
   );

@@ -4,7 +4,7 @@ export default function HeroImage({ ...hero }) {
   const { image, title, text } = hero;
   return (
     <div
-      className="bg-gray-500 relative h-screen flex flex-wrap content-end"
+      className="bg-gray-500 relative h-screen flex flex-wrap content-end animate-custom"
       style={{
         backgroundSize: "cover",
         backgroundPosition: "center",
