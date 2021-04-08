@@ -114,7 +114,7 @@ export default function Home() {
             return (
               <MovieThumb
                 key={i}
-                // clickable={}
+                clickable={true}
                 image={
                   element.poster_path
                     ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}`

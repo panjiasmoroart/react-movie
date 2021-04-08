@@ -4,11 +4,8 @@ export default function HeroImage({ ...hero }) {
   const { image, title, text } = hero;
   return (
     <div
-      className="bg-gray-500 relative h-screen flex flex-wrap content-end animate-custom"
+      className="bg-gray-500 h-screen hero-image-custom flex flex-wrap content-end animate-custom"
       style={{
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: "100%",
         backgroundImage: `url(${image})`,
       }}
     >
