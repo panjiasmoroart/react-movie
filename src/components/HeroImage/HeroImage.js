@@ -4,7 +4,7 @@ export default function HeroImage({ ...hero }) {
   const { image, title, text } = hero;
   return (
     <div
-      className="bg-gray-500 h-screen hero-image-custom flex flex-wrap content-end animate-custom"
+      className="bg-gray-500 h-screen bg-cover bg-center bg-no-repeat flex flex-wrap content-end animate-custom"
       style={{
         backgroundImage: `url(${image})`,
       }}

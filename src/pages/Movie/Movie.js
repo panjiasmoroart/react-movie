@@ -34,7 +34,7 @@ export default function Movie(props) {
     setState({ loading: true });
     const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
     fetchItems(endpoint);
-  }, []);
+  }, [movieId]);
 
   return (
     <div>
@@ -42,7 +42,6 @@ export default function Movie(props) {
       <MovieInfo movie={state.movie} />
 
       {state.loading ? <Spinner /> : null}
-      <div className="container mx-auto">Halaman Detail Movie</div>
     </div>
   );
 }
