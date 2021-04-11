@@ -9,7 +9,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link to="/">
               <img
-                src="./images/reactMovie_logo.png"
+                src={process.env.PUBLIC_URL + "/images/reactMovie_logo.png"}
                 className="md:block"
                 width={300}
                 alt="rmdb-logo"
@@ -18,7 +18,7 @@ export default function Header() {
           </div>
           <div className="hidden md:block">
             <img
-              src="./images/tmdb_logo.png"
+              src={process.env.PUBLIC_URL + "/images/tmdb_logo.png"}
               className="md:block"
               alt="tmdb-logo"
             />

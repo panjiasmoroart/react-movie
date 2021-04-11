@@ -2,7 +2,7 @@ import React from "react";
 import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE } from "../../utils/config";
 import MovieThumb from "../MovieThumb/MovieThumb";
 
-export default function MovieInfo({ movie }) {
+export default function MovieInfo({ movie, directors }) {
   return (
     <div
       className="animate-custom movie-info-custom"
@@ -17,35 +17,37 @@ export default function MovieInfo({ movie }) {
           <MovieThumb
             image={
               movie?.poster_path
-                ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${movie.poster_path}`
-                : "./images/no_image.jpg"
+                ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${movie?.poster_path}`
+                : process.env.PUBLIC_URL + "/images/no_image.jpg"
             }
             clickable={false}
           />
         </div>
         <div className="col-span-9 bg-black bg-opacity-70 p-12 text-white">
-          <h1 className="text-5xl font-medium mb-6">
-            Zack Snyder's Justice League
-          </h1>
+          <h1 className="text-5xl font-medium mb-6">{movie?.title}</h1>
           <h3 className="font-semibold mb-2">PLOT</h3>
-          <p className="mb-4">
-            Determined to ensure Superman's ultimate sacrifice was not in vain,
-            Bruce Wayne aligns forces with Diana Prince with plans to recruit a
-            team of metahumans to protect the world from an approaching threat
-            of catastrophic proportions.
-          </p>
+          <p className="mb-4">{movie?.overview}</p>
           <h3 className="font-semibold">IMDB RATING</h3>
           <div className="my-3 mx-0 flex items-center">
-            <meter
-              className="w-48 mr-5"
-              min="0"
-              max="100"
-              optimum="100"
-              low="40"
-              high="70"
-              value={movie?.vote_average * 10}
-            ></meter>
-            <p>{movie?.vote_average}</p>
+            <div className="shadow w-72 bg-white rounded-md">
+              <div
+                className="bg-green-500 text-xs rounded-md leading-none py-1 text-center text-white"
+                style={{ width: movie?.vote_average * 10 + "%" }}
+              >
+                {movie?.vote_average}%
+              </div>
+            </div>
+          </div>
+
+          <div>
+            {directors?.length > 1 ? (
+              <h3 className="font-semibold mb-2">DIRECTORS</h3>
+            ) : (
+              <h3 className="font-semibold mb-2">DIRECTOR</h3>
+            )}
+            {directors?.map((element, key) => {
+              return <p key={key}>{element.name}</p>;
+            })}
           </div>
 
           <div className="flex justify-end">
